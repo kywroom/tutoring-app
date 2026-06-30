@@ -1,5 +1,6 @@
 "use client"
 
+import Whiteboard from "@/components/Whiteboard"
 import { useEffect, useRef, useState } from "react"
 import { useParams } from "next/navigation"
 import {
@@ -119,7 +120,7 @@ function ParticipantList() {
 export default function RoomPage() {
   
   const params = useParams<{ id: string }>()
-  
+
   const roomId = params.id
 
   const [token, setToken] = useState("")
@@ -221,6 +222,7 @@ export default function RoomPage() {
         video={false}
       >
         <ParticipantList />
+        <Whiteboard />
         <AudioConference />
       </LiveKitRoom>
     </div>
