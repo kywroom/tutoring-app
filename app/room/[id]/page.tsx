@@ -34,7 +34,7 @@ function parseIdentity(identity: string) {
 ========================= */
 function ParticipantList() {
   const room = useRoomContext()
-  const participants = useParticipants(room)
+  const participants = useParticipants()
 
   const [logs, setLogs] = useState<string[]>([])
 
