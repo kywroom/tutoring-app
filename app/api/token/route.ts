@@ -21,9 +21,17 @@ export async function GET(req: Request) {
     )
   }
 
-  const apiKey = process.env.LIVEKIT_API_KEY!
-  const apiSecret = process.env.LIVEKIT_API_SECRET!
+  const apiKey = process.env.LIVEKIT_API_KEY
+  const apiSecret = process.env.LIVEKIT_API_SECRET
 
+console.log("KEY 존재:", !!apiKey)
+console.log("SECRET 존재:", !!apiSecret)
+if (!apiKey || !apiSecret) {
+  return Response.json(
+    { error: "LiveKit env missing" },
+    { status: 500 }
+  )
+}
   /* =========================
      안정적인 identity 구조
   ========================= */
