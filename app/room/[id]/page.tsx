@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useParams } from "next/navigation"
 import {
   LiveKitRoom,
   AudioConference,
@@ -115,7 +116,10 @@ function ParticipantList() {
 /* =========================
    Room Page
 ========================= */
-export default function RoomPage({ params }: any) {
+export default function RoomPage() {
+  
+  const params = useParams<{ id: string }>()
+  
   const roomId = params.id
 
   const [token, setToken] = useState("")
